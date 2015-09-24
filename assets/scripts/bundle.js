@@ -1,0 +1,1 @@
+console.log("Js Loaded!"),$("#form").submit(function(a){a.preventDefault();var b=$("#search").val(),c=b.split("v=")[1],d=c.indexOf("&");-1!=d&&(c=c.substring(0,d));var e='<iframe src="https://www.youtube.com/embed/'+c+"?autoplay=1&loop=1&playlist="+c+'" width="640" height="390"></iframe>';$("#video").append(e),console.log(e)});
