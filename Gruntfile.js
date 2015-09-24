@@ -19,11 +19,11 @@ module.exports = function(grunt) {
         files: '<%= paths.assets %>styles/**/**/*.scss',
         tasks: ['sass:app']
       },
-      browserify: {
+      copy: {
         files: [
           '<%= paths.assets %>/scripts/*.js'
         ],
-        tasks: ['browserify:app'],
+        tasks: ['copy:js'],
         options: {
           livereload: true
         }
@@ -125,7 +125,11 @@ module.exports = function(grunt) {
             'images/*.*',
           ]
         }]
-      }
+      },
+      js: {
+        src: '<%= paths.assets %>/scripts/main.js',
+        dest: '<%= paths.app %>/assets/scripts/bundle.js'
+      },
     },
 
     connect: {
@@ -148,7 +152,8 @@ module.exports = function(grunt) {
     'clean:app',
     'copy:app',
     'sass:app',
-    'browserify:app',
+    // 'browserify:app',
+    'copy:js',
   ]);
 
   // Compile APP, Run Connect Server and then Watch for changes
